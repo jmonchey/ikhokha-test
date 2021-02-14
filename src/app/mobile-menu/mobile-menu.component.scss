@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  width: 100vw;
+  height: 100%;
+}
+
+nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  flex: none;
+  list-style-type: none;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+  padding-left: 59px;
+  font-weight: 600;
+
+  a {
+    color: #394E5D;
+    text-decoration: none;
+  }
+
+  li:not(:first-child) {
+    margin-top: 31px;
+  }
+
+  li {
+    position: relative;
+  }
+
+  li.active a::before {
+    display: inline-block;
+    content:'';
+    height: 8px;
+    width: 8px;
+    background-color: #3D86BF;
+    border-radius: 50%;;
+    position: absolute;
+    left: -1rem;
+    top: calc(50% - 4px);
+  }
+}
+
+.fill-space-1 {
+  flex: 1 1 0;
+}
+
+.fill-space-2 {
+  flex: 2 1 0;
+}

@@ -1,0 +1,21 @@
+<div class="header-left">
+  <div class="mobile-menu-action">
+    <img
+      *ngIf="isMobileMenuOpen$ | async; else notOpen"
+      src="/assets/images/Group 13.svg"
+      class="close-menu"
+      (click)="closeMobileMenu()">
+    <ng-template #notOpen>
+      <img
+        src="/assets/images/Group 13 (1).svg"
+        class="open-menu"
+        (click)="openMobileMenu()">
+    </ng-template>
+  </div>
+</div>
+<div class="header-center">
+  <img src="/assets/images/Logo.svg">
+</div>
+<div class="header-right">
+
+</div>
