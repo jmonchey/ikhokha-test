@@ -1,5 +1,5 @@
 <ik-header></ik-header>
-<mat-sidenav-container>
+<mat-sidenav-container [hasBackdrop]="false">
   <mat-sidenav
     #sidenav
     class="mobile-menu"
@@ -8,6 +8,6 @@
     <ik-mobile-menu></ik-mobile-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

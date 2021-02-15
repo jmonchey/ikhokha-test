@@ -1,3 +1,7 @@
 mat-sidenav.mobile-menu {
   box-shadow: none;
 }
+
+mat-sidenav-content {
+  height: calc(100vh - 57px);
+}
