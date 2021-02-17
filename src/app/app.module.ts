@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { BlogPostSummaryComponent } from './landing-page/blog-post-summary/blog-post-summary.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CtaButtonComponent } from './shared/components/cta-button/cta-button.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CtaButtonComponent } from './shared/components/cta-button/cta-button.co
     BlogPageComponent,
     ContactPageComponent,
     BlogPostSummaryComponent,
-    CtaButtonComponent
+    CtaButtonComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

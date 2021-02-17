@@ -1,10 +1,9 @@
 :host {
   display: block;
-  height: 100%;
 }
 
 .hero-section {
-  height: 100%;
+  height: calc(100vh - 57px);
   overflow: hidden;
   padding: 0 26px;
   display: grid;
@@ -39,7 +38,7 @@
 }
 
 .hero-section-2 {
-  height: 100%;
+  height: calc(100vh - 57px);
   overflow: hidden;
   padding: 0 22px;
   display: grid;
