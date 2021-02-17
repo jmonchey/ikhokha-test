@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { BlogPostService } from '../services/blog-post.service';
 
 @Component({
   selector: 'ik-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
+  posts$ = this.blogPostService.posts$;
+  postsLoading$ = this.blogPostService.postsLoading$;
 
-  constructor() { }
+  constructor(private blogPostService: BlogPostService) { }
 
-  ngOnInit(): void {
+  loadMorePosts(): void {
+    this.blogPostService.loadPosts();
   }
-
 }

@@ -94,3 +94,22 @@
   font-weight: 600;
   grid-row-start: 1;
 }
+
+.posts-section {
+  margin-top: 52px;
+  padding: 0 23px;
+
+  ik-blog-post-summary:not(:first-child) {
+    margin-top: 46px;
+  }
+
+  mat-spinner {
+    margin: 2rem auto 0;
+  }
+}
+
+.action-section {
+  margin: 48px 0 78px;
+  display: flex;
+  justify-content: center;
+}

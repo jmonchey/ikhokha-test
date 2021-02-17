@@ -12,6 +12,9 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { RouterModule } from '@angular/router';
+import { BlogPostSummaryComponent } from './landing-page/blog-post-summary/blog-post-summary.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CtaButtonComponent } from './shared/components/cta-button/cta-button.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,17 @@ import { RouterModule } from '@angular/router';
     LandingPageComponent,
     ProductsPageComponent,
     BlogPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    BlogPostSummaryComponent,
+    CtaButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    RouterModule
+    RouterModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
