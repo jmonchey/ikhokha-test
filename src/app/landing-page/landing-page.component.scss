@@ -67,6 +67,16 @@
       color: #182333;
     }
   }
+
+  .hero-image {
+    display: none;
+    justify-content: center;
+
+    img {
+      width: 236px;
+      height: 370px;
+    }
+  }
 }
 
 .logo-section {
@@ -111,4 +121,68 @@
   margin: 48px 0 78px;
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .hero-section {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    .hero-information {
+      box-sizing: border-box;
+      padding: 0 1rem;
+      max-width: 543px;
+      margin: 0 40px 0 auto;
+
+      h1 {
+        font-size: 46px;
+        line-height: 57px;
+      }
+
+      p {
+        font-size: 22px;
+        line-height: 27px;
+      }
+    }
+
+    .hero-image {
+      margin-left: 40px;
+      justify-content: flex-start;
+
+      img {
+        width: 384px;
+        height: 371px;
+      }
+    }
+  }
+
+  .hero-section-2 {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    row-gap: 60px;
+
+    h2 {
+      grid-column: 1 / span 2;
+      display: flex;
+      justify-content: center;
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .hero-image {
+      display: flex;
+      grid-row: 2;
+    }
+
+    .hero-information {
+      grid-row: 2;
+      max-width: 525px;
+
+      p {
+        font-size: 18px;
+        line-height: 33px;
+      }
+    }
+  }
 }
