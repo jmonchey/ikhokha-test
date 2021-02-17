@@ -13,3 +13,9 @@
   line-height: 19px;
   margin-left: 32px;
 }
+
+@media (min-width: 600px) {
+  :host {
+    padding-left: 147px;
+  }
+}
