@@ -12,10 +12,29 @@
         (click)="openMobileMenu()">
     </ng-template>
   </div>
+  <nav class="left-links">
+    <ul>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink="">Home</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="products">Products</a>
+      </li>
+    </ul>
+  </nav>
 </div>
 <div class="header-center">
   <img src="/assets/images/Logo.svg">
 </div>
 <div class="header-right">
-
+  <nav class="right-links">
+    <ul>
+      <li routerLinkActive="active">
+        <a routerLink="blog">Blog</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
 </div>
