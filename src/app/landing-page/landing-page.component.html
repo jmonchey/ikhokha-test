@@ -40,10 +40,10 @@
 <div class="posts-section">
   <ik-blog-post-summary *ngFor="let post of posts$ | async" [post]="post">
   </ik-blog-post-summary>
-  <mat-spinner *ngIf="postsLoading$ | async" [diameter]="50">
-  </mat-spinner>
 </div>
 <div class="action-section">
+  <mat-spinner *ngIf="postsLoading$ | async" [diameter]="50">
+  </mat-spinner>
   <ik-cta-button *ngIf="!(postsLoading$ | async)" (click)="loadMorePosts()">
     Read more
   </ik-cta-button>

@@ -7,5 +7,11 @@
   padding: 0 33px;
   height: 38px;
   border: 1px solid #4285bc;
-  border-radius: 32px;;
+  border-radius: 32px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #4285bc;
+    color: #fff;
+  }
 }

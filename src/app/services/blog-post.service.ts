@@ -1,27 +1,43 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { delay, first } from 'rxjs/operators';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { delay, filter, first, takeUntil } from 'rxjs/operators';
 import { BlogPostSummary } from '../models/blog-post-summary';
 import { MenuService } from './menu.service';
 import { posts } from './posts';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class BlogPostService {
+export class BlogPostService implements OnDestroy {
   private postsSubject: BehaviorSubject<BlogPostSummary[]>;
   readonly posts$: Observable<BlogPostSummary[]>;
   private postsLoadingSubject: BehaviorSubject<boolean>;
   readonly postsLoading$: Observable<boolean>;
+
+  private destroy$: Subject<void>;
 
   constructor(private menuService: MenuService) {
     this.postsSubject = new BehaviorSubject<BlogPostSummary[]>([]);
     this.posts$ = this.postsSubject.asObservable();
     this.postsLoadingSubject = new BehaviorSubject<boolean>(false);
     this.postsLoading$ = this.postsLoadingSubject.asObservable();
+    this.destroy$ = new Subject<void>();
 
     this.loadPosts();
+
+    this.menuService.isMobile$.pipe(
+      takeUntil(this.destroy$),
+      filter(isMobile => !isMobile)
+    ).subscribe(() => {
+      if (this.postsSubject.value.length % 4 === 2) {
+        // Always keep a row of desktop articles filled
+        this.loadNPosts(2);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
   }
 
   private getBlogPostSummaries(count: number, lastPostId: string): Observable<BlogPostSummary[]> {
@@ -40,12 +56,16 @@ export class BlogPostService {
   }
 
   async loadPosts(): Promise<void> {
-    const lastPostId = this.getLastPostId();
     const count = await this.getNumberOfItemsToLoad();
+    this.loadNPosts(count);
+  }
+
+  private async loadNPosts(n: number): Promise<void> {
+    const lastPostId = this.getLastPostId();
     this.postsLoadingSubject.next(true);
 
     try {
-      const newPosts = await this.getBlogPostSummaries(count, lastPostId).toPromise();
+      const newPosts = await this.getBlogPostSummaries(n, lastPostId).toPromise();
       const posts = [...this.postsSubject.value, ...newPosts];
       this.postsSubject.next(posts);
     } catch(e) {

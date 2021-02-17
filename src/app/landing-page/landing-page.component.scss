@@ -108,12 +108,10 @@
   margin-top: 52px;
   padding: 0 23px;
 
-  ik-blog-post-summary:not(:first-child) {
-    margin-top: 46px;
-  }
-
-  mat-spinner {
-    margin: 2rem auto 0;
+  @media (max-width: 600px) {
+    ik-blog-post-summary:not(:first-child) {
+      margin-top: 46px;
+    }
   }
 }
 
@@ -197,5 +195,19 @@
     font-size: 35px;
     line-height: 48px;
     color: #959595;
+  }
+
+  .posts-section {
+    margin-top: 156px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 282px);
+    column-gap: 20px;
+    row-gap: 50px;
+    justify-content: center;
+  }
+
+  .action-section {
+    margin: 71px 0 167px;
   }
 }
