@@ -185,4 +185,17 @@
       }
     }
   }
+
+  .logos {
+    flex: 1 0 auto;
+    grid-auto-columns: auto;
+    column-gap: 97px;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-size: 35px;
+    line-height: 48px;
+    color: #959595;
+  }
 }
