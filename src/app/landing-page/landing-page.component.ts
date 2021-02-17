@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BlogPostService } from '../services/blog-post.service';
 
 @Component({
   selector: 'ik-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  styleUrls: ['./landing-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LandingPageComponent {
   posts$ = this.blogPostService.posts$;
